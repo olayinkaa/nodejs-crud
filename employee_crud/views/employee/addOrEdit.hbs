@@ -1,10 +1,11 @@
 <div class="mt-4">
     <h3 class="text-center mb-4">{{viewTitle}}</h3>
     <form action="/employee" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{employee.id}}">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="fullname">Full Name</label>
-                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" value="{{employee.fullname}}">
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" value="{{employee.fullName}}">
                 <div class="text-danger">
                     {{employee.FullNameError}}
                 </div>
@@ -27,5 +28,9 @@
                 <i class="fa fa-database"></i>
                 Submit
             </button>
+            <a href="/employee/list" class="btn btn-secondary">
+                <i class="fa fa-list-alt"></i>
+                View All
+            </a>
     </form>
 </div>

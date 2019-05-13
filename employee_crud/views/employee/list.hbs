@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h3 ><a href="/employee" class="btn btn-secondary"><i class="fa fa-plus"></i>Create New</a> Employee List</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">City</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each list}}
+            <tr>
+                <td>{{this.fullName}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.mobile}}</td>
+                <td>{{this.city}}</td>
+                <td>
+                    <a href="/employee/{{this.id}}">
+                        <i class="fa fa-edit fa-lg"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-trash fa-lg"></i>
+                    </a>
+                </td>       
+            </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

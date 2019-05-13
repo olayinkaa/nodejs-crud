@@ -19,8 +19,34 @@ router.post('/',(req,res)=>{
 
 router.get('/list',(req,res)=>{
 
-    res.json('from list');
+    // res.json('from list');
+    Employee.find((err,docs)=>{
+            if(!err){
+
+                res.render("employee/list",{list:docs});
+
+            } else {
+
+                    console.log("Error in retrieving Employee list: " + err);
+            }
+    });
 });
+
+router.get('/:id',(req,res)=>{
+
+    Employee.findById(req.params.id,(err,docs)=>{
+            if(!err){
+                res.render('employee/addOrEdit',{
+                    viewTitle:"Update Employee",
+                    employee:docs
+                })
+            } else {
+
+                
+            }
+    });
+});
+
 
 
 function insertRecord(req,res){
