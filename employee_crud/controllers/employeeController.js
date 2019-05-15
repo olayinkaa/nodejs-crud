@@ -51,6 +51,23 @@ router.get('/:id',(req,res)=>{
 });
 
 
+router.get('/delete/:id',(req,res)=>{
+
+        deleteRecord(req,res);
+
+});
+
+
+function deleteRecord(req,res)
+{
+    Employee.findByIdAndRemove(req.params.id,(err,doc)=>{
+
+            if(!err)
+                res.redirect('/employee/list');
+            else
+                console.log("Error while trying to delete this record "+ err);
+    });
+}
 
 function insertRecord(req,res){
     var employee = new Employee();
@@ -83,7 +100,7 @@ function updateRecord(req,res){
             res.redirect('employee/list');
         } 
         else {
-                if(err.name = 'ValidationError'){
+                if(err.name = 'validationError'){
                     handleValidationError(err,req.body);
                     res.render("employee/addOrEdit",
                     {
