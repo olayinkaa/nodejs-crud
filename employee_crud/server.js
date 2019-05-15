@@ -2,6 +2,9 @@ require('./models/db');
 const express = require('express');
 var app = express();
 
+//-------setting up our static file-------------
+app.use(express.static('public'));
+// app.use(express.static(path.join(__dirname, 'public')));
 //------------------------------------------------------------
 const bodyparser = require('body-parser');
 app.use(bodyparser.urlencoded({ extended: true }));

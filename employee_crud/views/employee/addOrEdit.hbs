@@ -11,17 +11,26 @@
                 </div>
             </div>
             <div class="form-group col-md-6">
-            <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{employee.email}}">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{employee.email}}">
+                 <div class="text-danger">
+                    {{employee.emailError}}
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label for="mobile">Mobile</label>
             <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="{{employee.mobile}}">
+            <div class="text-danger">
+                    {{employee.mobileError}}
+                </div>
         </div>
         <div class="form-group">
             <label for="city">City</label>
             <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{employee.city}}">
+            <div class="text-danger">
+                    {{employee.cityError}}
+                </div>
         </div>
         
             <button type="submit" class="btn btn-primary">
